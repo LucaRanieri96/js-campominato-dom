@@ -8,6 +8,11 @@
   height: 100px;
 }
 
+.score {
+  background-color: #7fffd4;
+  font-size: 30px;
+}
+
 img {
   max-height: 100px;
 }
