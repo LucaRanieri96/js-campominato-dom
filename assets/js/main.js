@@ -84,7 +84,9 @@ function createGrid(cellNumber) {
             console.log("Hai calpestato una bomba!");
             // scrivere dentro una card il risultato ma prima la rendo visibile
             const card = document.querySelector('.card');
+            const overlay = document.querySelector('.overlay');
             card.classList.toggle('d-none', false);
+            overlay.classList.add('active');
 
             const cardHeader = document.querySelector(".card-header");
             cardHeader.innerText = "Hai calpestato una bomba!";
@@ -105,6 +107,8 @@ function createGrid(cellNumber) {
               console.log("Hai vinto!");
               // scrivo dentro la card il risultato ma prima la rendo visibile
               const card = document.querySelector('.card');
+              const overlay = document.querySelector('.overlay');
+              overlay.classList.add('active');
               card.classList.toggle('d-none', false);
 
               const cardHeader = document.querySelector(".card-header");
@@ -140,6 +144,8 @@ resetButton.addEventListener("click", function(){
   gridContainer.appendChild(grid);
   const card = document.querySelector('.card');
   card.classList.toggle('d-none', true);
+  const overlay = document.querySelector('.overlay');
+  overlay.classList.remove('active');
 })
 
 generateBombsArray();
