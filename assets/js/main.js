@@ -27,13 +27,19 @@ console.log(bombsArray);
 
 let cellNumber = 10;
 
-// genero il bombsArray, mi creo una funzione
-while (bombsArray.length < 16) {
-  // genero un numero da 1 a cellNumber^2
-  const randomNumber = Math.floor(Math.random() * cellNumber * cellNumber);
-  // Se questo numero non è nell'array allora ce lo pusho
-  if (!bombsArray.includes(randomNumber)) {
-    bombsArray.push(randomNumber);
+// genero il bombsArray, mi creo una funzione generatebombsArray
+
+function generateBombsArray() {
+
+  bombsArray = [];
+
+  while (bombsArray.length < 16) {
+    const randomNumber = Math.floor(Math.random() * cellNumber * cellNumber) + 1;
+    console.log(randomNumber);
+    if (!bombsArray.includes(randomNumber)) {
+      bombsArray.push(randomNumber);
+    }
+
   }
 }
 
@@ -108,10 +114,11 @@ function createGrid(cellNumber) {
 btn.addEventListener("click", function () {
   gridContainer.innerHTML = "";
   userScore = 0;
-  const grid = createGrid();
+  generateBombsArray();
+  const grid = createGrid(cellNumber);
   gridContainer.appendChild(grid);
 });
 
-// Initialize the game
+generateBombsArray();
 const initialGrid = createGrid();
 gridContainer.appendChild(initialGrid);
