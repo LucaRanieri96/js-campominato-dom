@@ -11,6 +11,8 @@
 .score {
   background-color: #7fffd4;
   font-size: 30px;
+  padding-top: 2rem;
+  padding-left: 2rem;
 }
 
 img {

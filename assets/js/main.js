@@ -19,27 +19,6 @@ scoreSpan.innerHTML = userScore;
 // Per prima cosa mi costruisco un array vuoto
 let bombs = [];
 console.log(bombs);
-/* 
-Questo array dovrà essere riempito con 16 numeri che rappresentano le nostre bombe, solo ogni volta devono essere 16 numeri diversi tra loro e diversi dalla generazione precedente 
-*/
-// Mi creo un ciclo while per generare i numeri e metterli dentro l'array vuoto
-
-while (bombs.length < 16) {
-  // genero un numero da 1 a 100
-  const randomNumber = Math.floor(Math.random() * 100);
-  // Se questo numero non è nell'array allora ce lo pusho
-  if (!bombs.includes(randomNumber)) {
-    bombs.push(randomNumber);
-  }
-}
-
-/*
-TRACCIA 1:
-L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
-Ogni cella ha un numero progressivo, da 1 a 100.
-Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
-*/
 
 // creo le variabili per il container e il bottone
 const container = document.querySelector(".my_container");
@@ -83,8 +62,21 @@ btn.addEventListener("click", function () {
   } else {
     cellNumber = 7;
   }
+  while (bombs.length < 16) {
+    // genero un numero da 1 a 100
+    const randomNumber = Math.floor(Math.random() * cellNumber * cellNumber);
+    // Se questo numero non è nell'array allora ce lo pusho
+    if (!bombs.includes(randomNumber)) {
+      bombs.push(randomNumber);
+    }
+  }
   const grid = createGrid(cellNumber); //questa sarà la mia funzione che crea la griglia
   container.appendChild(grid); //per mettere la griglia dentro il container
+  /* 
+  Questo array dovrà essere riempito con 16 numeri che rappresentano le nostre bombe, solo ogni volta devono essere 16 numeri diversi tra loro e diversi dalla generazione precedente 
+  */
+  // Mi creo un ciclo while per generare i numeri e metterli dentro l'array vuoto
+  
 });
 
 // ora mi serve la funzione createGrid, questa funzione deve generare nel container una griglia X^2 >(devo poter scegliere il valore della X)
@@ -102,7 +94,7 @@ function createGrid(cellNumber) {
       col.innerText = number++;
       // aggiunta della colonna alla riga
       row.appendChild(col);
-
+      
       // aggiungo un event listener per le col
       col.addEventListener("click", function () {
         // se l'utente clicca su un quadrato che è già cliccato lo resetta
@@ -118,7 +110,7 @@ function createGrid(cellNumber) {
             // termina la partita
           } else {
             // l'utente ha cliccato su una cella sicura
-            col.style.backgroundColor = "blue";
+            col.style.backgroundColor = "lightblue";
             col.classList.add("clicked");
             userScore++;
             console.log(userScore);
