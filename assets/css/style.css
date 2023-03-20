@@ -1,0 +1,40 @@
+#app_main {
+  background-color: #7fffd4;
+  height: calc(100vh - 216px);
+}
+
+#app_footer {
+  font-size: 20px;
+  height: 100px;
+}
+
+img {
+  max-height: 100px;
+}
+
+.bg_white {
+  background-color: rgb(255, 255, 255);
+}
+
+.width_200 {
+  width: 200px;
+  background-color: rgb(199, 199, 199);
+  font-size: large;
+  font-weight: 700;
+}
+
+.my_row {
+  display: flex;
+  justify-content: center;
+  height: calc((70vh - 216px) / 10);
+}
+
+.my_col {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc((70vh - 216px) / 10);
+  height: 100%;
+  border: 1px solid black;
+}
