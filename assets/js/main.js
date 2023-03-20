@@ -16,6 +16,7 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // variabili
 const gridContainer = document.querySelector(".my_container");
 const btn = document.querySelector(".btn");
+const resetBtn = document.getElementById("resetButton")
 const select = document.querySelector("select");
 
 let userScore = 0;
@@ -84,8 +85,8 @@ function createGrid(cellNumber) {
             console.log("Hai calpestato una bomba!");
             // scrivere dentro una card il risultato ma prima la rendo visibile
             const card = document.querySelector('.card');
-            card.classList.toggle('d-none', false);
-            
+            card.classList.toggle('d-none');
+
             const cardHeader = document.querySelector(".card-header");
             cardHeader.innerText = "Hai calpestato una bomba!";
             const cardBody = document.querySelector(".card-body");
@@ -111,7 +112,7 @@ function createGrid(cellNumber) {
               console.log("Hai vinto!");
               // scrivo dentro la card il risultato ma prima la rendo visibile
               const card = document.querySelector('.card');
-              card.classList.toggle('d-none', false);
+              card.classList.toggle('d-none');
 
               const cardHeader = document.querySelector(".card-header");
               cardHeader.innerText = "Hai vinto!";
@@ -134,6 +135,10 @@ btn.addEventListener("click", function () {
   generateBombsArray();
   const grid = createGrid(cellNumber);
   gridContainer.appendChild(grid);
+});
+
+resetBtn.addEventListener("click", function() {
+  const card = document.querySelector('.card');
 });
 
 generateBombsArray();
