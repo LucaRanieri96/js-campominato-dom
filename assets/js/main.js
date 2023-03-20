@@ -94,6 +94,7 @@ function createGrid(cellNumber) {
             col.style.backgroundColor = "lightblue";
             col.classList.add("clicked");
             userScore++;
+            scoreSpan.innerHTML = userScore;
             console.log(userScore);
             console.log(`Cella cliccata: ${col.innerText}`);
             // Se andando avanti succede che l'userScore è uguale al numero di col - le bombe allora vuol dire che l'utente ha vinto
