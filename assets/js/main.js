@@ -84,3 +84,35 @@ function createGrid(cellNumber) {
   }
   return grid
 }
+
+/* 
+Traccia 2:
+Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
+In seguito l'utente clicca su una cella:
+se il numero è presente nella lista dei numeri generati
+abbiamo calpestato una bomba
+la cella si colora di rosso e la partita termina.
+Altrimenti
+la cella cliccata si colora di azzurro
+l'utente può continuare a cliccare sulle altre celle.
+La partita termina quando il giocatore clicca su una bomba o quando raggiunge il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
+Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba. 
+*/
+
+// Per prima cosa mi costruisco un array vuoto
+let bombs = [];
+console.log(bombs);
+
+/* 
+Questo array dovrà essere riempito con 16 numeri che rappresentano le nostre bombe, solo ogni volta devono essere 16 numeri diversi tra loro e diversi dalla generazione precedente 
+*/
+// Mi creo un ciclo for per generare i numeri e metterli dentro l'array vuoto
+for (let i = 0; i < 16; i++){
+  // genero un numero da 1 a 100
+  const randomNumber = Math.floor(Math.random() * 100);
+  // Se questo numero non è nell'array allora ce lo pusho
+  if (!bombs.includes(randomNumber)) {
+    bombs.push(randomNumber);
+  }
+}
