@@ -50,6 +50,8 @@ btn.addEventListener("click", function () {
   }
   const grid = createGrid(cellNumber); //questa sarà la mia funzione che crea la griglia
   container.appendChild(grid); //per mettere la griglia dentro il container
+
+
 });
 
 // ora mi serve la funzione createGrid, questa funzione deve generare nel container una griglia X^2 >(devo poter scegliere il valore della X)
@@ -103,16 +105,18 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // Per prima cosa mi costruisco un array vuoto
 let bombs = [];
 console.log(bombs);
-
 /* 
 Questo array dovrà essere riempito con 16 numeri che rappresentano le nostre bombe, solo ogni volta devono essere 16 numeri diversi tra loro e diversi dalla generazione precedente 
 */
-// Mi creo un ciclo for per generare i numeri e metterli dentro l'array vuoto
-for (let i = 0; i < 16; i++){
+// Mi creo un ciclo while per generare i numeri e metterli dentro l'array vuoto
+let i = 0;
+
+while (i <= 16){
   // genero un numero da 1 a 100
   const randomNumber = Math.floor(Math.random() * 100);
   // Se questo numero non è nell'array allora ce lo pusho
   if (!bombs.includes(randomNumber)) {
     bombs.push(randomNumber);
-  }
+  } 
+  i++;
 }
