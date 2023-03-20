@@ -89,14 +89,14 @@ function createGrid(cellNumber) {
             overlay.classList.add('active');
 
             const cardHeader = document.querySelector(".card-header");
-            cardHeader.innerText = "Hai calpestato una bomba!";
+            cardHeader.innerText = "💣💣💣Hai calpestato una bomba!💣💣💣";
             const cardBody = document.querySelector(".card-body");
             cardBody.innerText = `il tuo score è : ${userScore}`;
 
             return;
           } else {
             // l'utente ha cliccato su una cella sicura
-            col.style.backgroundColor = "lightblue";
+            col.style.backgroundColor = "rgb(0, 105, 0)";
             col.classList.add("clicked");
             userScore++;
             scoreSpan.innerHTML = userScore;

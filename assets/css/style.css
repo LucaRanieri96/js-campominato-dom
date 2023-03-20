@@ -44,14 +44,22 @@ img {
   width: calc((70vh - 216px) / 10);
   height: 100%;
   border: 1px solid black;
+  transition: all;
+}
+
+.my_col:hover {
+  cursor: pointer;
+  background-color: #479078;
+  transition: ease-in 100ms;
 }
 
 .my_card {
+  text-align: center;
   height: 300px;
-  width: 300px;
+  width: fit-content;
   background-color: #68fecc;
   box-shadow: 0px 0px 30px 5px black;
-  font-size: 2rem;
+  font-size: 1.5rem;
   z-index: 4;
 }
 
@@ -69,3 +77,4 @@ img {
 .overlay.active {
   display: block;
 }
+
