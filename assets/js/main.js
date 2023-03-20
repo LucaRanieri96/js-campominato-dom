@@ -82,7 +82,14 @@ function createGrid(cellNumber) {
           if (bombsArray.includes(Number(col.innerText))) {
             col.style.backgroundColor = "red";
             console.log("Hai calpestato una bomba!");
-            alert(`Hai calpestato una bomba! Il tuo score è di ${userScore}`);
+            // scrivere dentro una card il risultato ma prima la rendo visibile
+            const card = document.querySelector('.card');
+            card.classList.toggle('d-none', false);
+            
+            const cardHeader = document.querySelector(".card-header");
+            cardHeader.innerText = "Hai calpestato una bomba!";
+            const cardBody = document.querySelector(".card-body");
+            cardBody.innerText = `il tuo score è : ${userScore}`;
             // resetto il punteggio
             userScore = 0;
             scoreSpan.innerHTML = userScore;
@@ -102,7 +109,14 @@ function createGrid(cellNumber) {
             // Se andando avanti succede che l'userScore è uguale al numero di col - le bombe allora vuol dire che l'utente ha vinto
             if (userScore === cellNumber * cellNumber - bombsArray.length) {
               console.log("Hai vinto!");
-              alert("Hai vinto!");
+              // scrivo dentro la card il risultato ma prima la rendo visibile
+              const card = document.querySelector('.card');
+              card.classList.toggle('d-none', false);
+
+              const cardHeader = document.querySelector(".card-header");
+              cardHeader.innerText = "Hai vinto!";
+              const cardBody = document.querySelector(".card-body");
+              cardBody.innerText = `il tuo score è : ${userScore}`;
               // termina la partita
             }
           }
