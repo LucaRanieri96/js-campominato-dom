@@ -109,14 +109,12 @@ console.log(bombs);
 Questo array dovrà essere riempito con 16 numeri che rappresentano le nostre bombe, solo ogni volta devono essere 16 numeri diversi tra loro e diversi dalla generazione precedente 
 */
 // Mi creo un ciclo while per generare i numeri e metterli dentro l'array vuoto
-let i = 0;
 
-while (i <= 16){
+while (bombs.length < 16){
   // genero un numero da 1 a 100
   const randomNumber = Math.floor(Math.random() * 100);
   // Se questo numero non è nell'array allora ce lo pusho
   if (!bombs.includes(randomNumber)) {
     bombs.push(randomNumber);
   } 
-  i++;
 }
