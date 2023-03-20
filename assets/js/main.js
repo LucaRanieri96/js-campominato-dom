@@ -16,7 +16,6 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // variabili
 const gridContainer = document.querySelector(".my_container");
 const btn = document.querySelector(".btn");
-const resetBtn = document.getElementById("resetButton")
 const select = document.querySelector("select");
 
 let userScore = 0;
@@ -85,19 +84,13 @@ function createGrid(cellNumber) {
             console.log("Hai calpestato una bomba!");
             // scrivere dentro una card il risultato ma prima la rendo visibile
             const card = document.querySelector('.card');
-            card.classList.toggle('d-none');
+            card.classList.toggle('d-none', false);
 
             const cardHeader = document.querySelector(".card-header");
             cardHeader.innerText = "Hai calpestato una bomba!";
             const cardBody = document.querySelector(".card-body");
             cardBody.innerText = `il tuo score è : ${userScore}`;
-            // resetto il punteggio
-            userScore = 0;
-            scoreSpan.innerHTML = userScore;
-            // resetto la griglia
-            gridContainer.innerHTML = "";
-            const grid = createGrid(cellNumber);
-            gridContainer.appendChild(grid);
+
             return;
           } else {
             // l'utente ha cliccato su una cella sicura
@@ -112,7 +105,7 @@ function createGrid(cellNumber) {
               console.log("Hai vinto!");
               // scrivo dentro la card il risultato ma prima la rendo visibile
               const card = document.querySelector('.card');
-              card.classList.toggle('d-none');
+              card.classList.toggle('d-none', false);
 
               const cardHeader = document.querySelector(".card-header");
               cardHeader.innerText = "Hai vinto!";
@@ -137,9 +130,17 @@ btn.addEventListener("click", function () {
   gridContainer.appendChild(grid);
 });
 
-resetBtn.addEventListener("click", function() {
+const resetButton = document.getElementById("resetGame");
+
+resetButton.addEventListener("click", function(){
+  gridContainer.innerHTML = "";
+  userScore = 0;
+  generateBombsArray();
+  const grid = createGrid(cellNumber);
+  gridContainer.appendChild(grid);
   const card = document.querySelector('.card');
-});
+  card.classList.toggle('d-none', true);
+})
 
 generateBombsArray();
 const initialGrid = createGrid();
